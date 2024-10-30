@@ -1,5 +1,6 @@
 body {
   display: flex;
+  flex-direction: column; /* Stack elements vertically */
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -9,9 +10,7 @@ body {
 }
 
 .logo-container {
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  margin-bottom: 20px; /* Add space below the logo */
 }
 
 .logo-container img {
@@ -89,6 +88,10 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+  .logo-container img {
+    max-width: 120px; /* Smaller logo size for small screens */
+  }
+
   .login-container {
     width: 100%; /* Full width on very small screens */
     padding: 15px; /* Reduce padding */
