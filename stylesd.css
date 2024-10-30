@@ -1,0 +1,26 @@
+/* General logo styling */
+.logo-container img {
+  max-width: 150px; /* Default logo size */
+  height: auto;
+  width: 100%; /* Ensures the logo is responsive */
+}
+
+/* Specific styling for dashboard page */
+body.dashboard .logo-container img {
+  max-width: 100px; /* Smaller logo size for the dashboard */
+}
+
+/* Media Queries for Responsive Logo */
+@media (max-width: 768px) {
+  /* Adjust logo size for tablets and smaller screens */
+  body.dashboard .logo-container img {
+    max-width: 80px; /* Further reduce size on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust logo size for mobile devices */
+  body.dashboard .logo-container img {
+    max-width: 60px; /* Further reduce size for mobile */
+  }
+}

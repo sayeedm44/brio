@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="brio-2.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="brio-2.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="brio-2.png" />
+  <img src="logo.png" alt="Brio Logo" style="float: left; width: 100px; height: auto;">
+  <script>
+    // Check if the user is logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      // Redirect to login page if not logged in
+      window.location.href = "index.html";
+    }
+  </script>
+    <title>Brio Feasibility Chart</title>
+</head>
+<body>
+
+    <h1>Brio Feasibility Chart</h1>
+    <p>Note: All Measurements are in Millimeters (mm) <br>Please provide values for width and depth.</p>
+
+    <h2>Centre Opening Min Shaft Sizes</h2>
+    <table>
+        <tr>
+            <th>Clear Opening</th>
+            <th>Min Shaft Required</th>
+        </tr>
+        <tr><td>500</td><td>1200</td></tr>
+        <tr><td>550</td><td>1250</td></tr>
+        <tr><td>600</td><td>1350</td></tr>
+        <tr><td>650</td><td>1400</td></tr>
+        <tr><td>700</td><td>1550</td></tr>
+        <tr><td>750</td><td>1700</td></tr>
+        <tr><td>800</td><td>1750</td></tr>
+        <tr><td>900</td><td>1950</td></tr>
+        <tr><td>1000</td><td>2150</td></tr>
+    </table>
+
+    <h2>Telescopic (LH/RH) Min Shaft Sizes</h2>
+    <table>
+        <tr>
+            <th>Clear Opening</th>
+            <th>Min Shaft Required</th>
+        </tr>
+        <tr><td>500</td><td>1050</td></tr>
+        <tr><td>550</td><td>1100</td></tr>
+        <tr><td>600</td><td>1200</td></tr>
+        <tr><td>650</td><td>1250</td></tr>
+        <tr><td>700</td><td>1300</td></tr>
+        <tr><td>750</td><td>1400</td></tr>
+        <tr><td>800</td><td>1450</td></tr>
+        <tr><td>900</td><td>1650</td></tr>
+        <tr><td>1000</td><td>1780</td></tr>
+    </table>
+
+     <h1>Feet to Millimeters Converter</h1>
+    <input id="feetInput" type="number" placeholder="Enter feet" />
+    <button onclick="convertToMillimeters()">Convert</button>
+    <div class="result" id="result"></div>
+    
+    <h2>Hydraulic</h2>
+    <h3>Hydraulic Auto Door Central Opening (Mechanism in Width)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupied By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input type="number" id="width1" placeholder="Enter Width"></td>
+            <td><input type="number" id="depth1" placeholder="Enter Depth"></td>
+            <td>300</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>200</td>
+            <td><span id="cabinWidth1">-</span></td>
+            <td><span id="cabinDepth1">-</span></td>
+        </tr>
+    </table>
+
+    <h3>Hydraulic Auto Door Central Opening (Mechanism in Depth)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupied By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input type="number" id="width2" placeholder="Enter Width"></td>
+            <td><input type="number" id="depth2" placeholder="Enter Depth"></td>
+            <td>300</td>
+            <td>60</td>
+            <td>70</td>
+            <td>70</td>
+            <td>200</td>
+            <td><span id="cabinWidth2">-</span></td>
+            <td><span id="cabinDepth2">-</span></td>
+        </tr>
+    </table>
+
+    <h3>Hydraulic Auto Door Telescopic Opening (Mechanism in Width)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupied By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input type="number" id="width3" placeholder="Enter Width"></td>
+            <td><input type="number" id="depth3" placeholder="Enter Depth"></td>
+            <td>300</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>270</td>
+            <td><span id="cabinWidth3">-</span></td>
+            <td><span id="cabinDepth3">-</span></td>
+        </tr>
+    </table>
+
+    <h3>Hydraulic Auto Door Telescopic Opening (Mechanism in Depth)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupied By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input type="number" id="width4" placeholder="Enter Width"></td>
+            <td><input type="number" id="depth4" placeholder="Enter Depth"></td>
+            <td>300</td>
+            <td>60</td>
+            <td>70</td>
+            <td>70</td>
+            <td>270</td>
+            <td><span id="cabinWidth4">-</span></td>
+            <td><span id="cabinDepth4">-</span></td>
+        </tr>
+    </table>
+
+    <h3>Hydraulic Manual Swing Door (Mechanism in Width)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupied By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input type="number" id="width5" placeholder="Enter Width"></td>
+            <td><input type="number" id="depth5" placeholder="Enter Depth"></td>
+            <td>300</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td><span id="cabinWidth5">-</span></td>
+            <td><span id="cabinDepth5">-</span></td>
+        </tr>
+    </table>
+
+    <h3>Hydraulic Manual Swing Door (Mechanism in Depth)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupied By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input type="number" id="width6" placeholder="Enter Width"></td>
+            <td><input type="number" id="depth6" placeholder="Enter Depth"></td>
+            <td>300</td>
+            <td>60</td>
+            <td>70</td>
+            <td>70</td>
+            <td>60</td>
+            <td><span id="cabinWidth6">-</span></td>
+            <td><span id="cabinDepth6">-</span></td>
+        </tr>
+    </table>
+
+     <h2>Home Belt</h2>
+
+    <!-- Table: Home Belt Auto Door Central Opening (Mechanism in Width) -->
+    <h3>Home Belt Auto Door Central Opening (Mechanism in Width)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width7" type="number" /></td>
+            <td><input id="depth7" type="number" /></td>
+            <td>400</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>200</td>
+            <td id="cabinWidth7"></td>
+            <td id="cabinDepth7"></td>
+        </tr>
+    </table>
+
+    <!-- Table: Home Belt Auto Door Central Opening (Mechanism in Depth) -->
+    <h3>Home Belt Auto Door Central Opening (Mechanism in Depth)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width8" type="number" /></td>
+            <td><input id="depth8" type="number" /></td>
+            <td>400</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>200</td>
+            <td id="cabinWidth8"></td>
+            <td id="cabinDepth8"></td>
+        </tr>
+    </table>
+
+    <!-- Table: Home Belt Auto Door Telescopic Opening (Mechanism in Width) -->
+    <h3>Home Belt Auto Door Telescopic Opening (Mechanism in Width)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width9" type="number" /></td>
+            <td><input id="depth9" type="number" /></td>
+            <td>300</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td id="cabinWidth9"></td>
+            <td id="cabinDepth9"></td>
+        </tr>
+    </table>
+
+    <!-- Table: Home Belt Auto Door Telescopic Opening (Mechanism in Depth) -->
+    <h3>Home Belt Auto Door Telescopic Opening (Mechanism in Depth)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width10" type="number" /></td>
+            <td><input id="depth10" type="number" /></td>
+            <td>400</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>270</td>
+            <td id="cabinWidth10"></td>
+            <td id="cabinDepth10"></td>
+        </tr>
+    </table>
+
+    <!-- Table: Home Belt Manual Swing Door (Mechanism in Width) -->
+    <h3>Home Belt Manual Swing Door (Mechanism in Width)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width11" type="number" /></td>
+            <td><input id="depth11" type="number" /></td>
+            <td>400</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td id="cabinWidth11"></td>
+            <td id="cabinDepth11"></td>
+        </tr>
+    </table>
+
+    <!-- Table: Home Belt Manual Swing Door (Mechanism in Depth) -->
+    <h3>Home Belt Manual Swing Door (Mechanism in Depth)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width12" type="number" /></td>
+            <td><input id="depth12" type="number" /></td>
+            <td>400</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td id="cabinWidth12"></td>
+            <td id="cabinDepth12"></td>
+        </tr>
+    </table>
+
+
+
+        <h2>Home Rope</h2>
+
+    <!-- Table: Home Rope Auto Door Central Opening (Mechanism in Width) -->
+    <h3>Home Rope Auto Door Central Opening (Mechanism in Width)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width7" type="number" /></td>
+            <td><input id="depth7" type="number" /></td>
+            <td>400</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>200</td>
+            <td id="cabinWidth7"></td>
+            <td id="cabinDepth7"></td>
+        </tr>
+    </table>
+
+    <!-- Table: Home Rope Auto Door Central Opening (Mechanism in Depth) -->
+    <h3>Home Rope Auto Door Central Opening (Mechanism in Depth)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width8" type="number" /></td>
+            <td><input id="depth8" type="number" /></td>
+            <td>400</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>200</td>
+            <td id="cabinWidth8"></td>
+            <td id="cabinDepth8"></td>
+        </tr>
+    </table>
+
+    <!-- Table: Home Rope Auto Door Telescopic Opening (Mechanism in Width) -->
+    <h3>Home Rope Auto Door Telescopic Opening (Mechanism in Width)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width9" type="number" /></td>
+            <td><input id="depth9" type="number" /></td>
+            <td>300</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td id="cabinWidth9"></td>
+            <td id="cabinDepth9"></td>
+        </tr>
+    </table>
+
+    <!-- Table: Home Rope Auto Door Telescopic Opening (Mechanism in Depth) -->
+    <h3>Home Rope Auto Door Telescopic Opening (Mechanism in Depth)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width10" type="number" /></td>
+            <td><input id="depth10" type="number" /></td>
+            <td>400</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>270</td>
+            <td id="cabinWidth10"></td>
+            <td id="cabinDepth10"></td>
+        </tr>
+    </table>
+
+    <!-- Table: Home Rope Manual Swing Door (Mechanism in Width) -->
+    <h3>Home Rope Manual Swing Door (Mechanism in Width)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width11" type="number" /></td>
+            <td><input id="depth11" type="number" /></td>
+            <td>400</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td id="cabinWidth11"></td>
+            <td id="cabinDepth11"></td>
+        </tr>
+    </table>
+
+    <!-- Table: Home Rope Manual Swing Door (Mechanism in Depth) -->
+    <h3>Home Rope Manual Swing Door (Mechanism in Depth)</h3>
+    <table>
+        <tr>
+            <th>Width</th>
+            <th>Depth</th>
+            <th>Mechanism</th>
+            <th>Cabin Thickness</th>
+            <th>Buffer Between Cabin and Shaft in Width</th>
+            <th>Buffer Between Cabin and Shaft in Depth</th>
+            <th>Total Space Occupy By Door Including Buffer</th>
+            <th>Cabin Width</th>
+            <th>Cabin Depth</th>
+        </tr>
+        <tr>
+            <td><input id="width12" type="number" /></td>
+            <td><input id="depth12" type="number" /></td>
+            <td>400</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td id="cabinWidth12"></td>
+            <td id="cabinDepth12"></td>
+        </tr>
+    </table>
+
+<h2>MRL</h2>
+
+<!-- MRL Auto Central Opening (Mechanism in Width) -->
+<h3>MRL Auto Central Opening (Mechanism in Width)</h3>
+<table>
+    <tr>
+        <th>Width</th>
+        <th>Depth</th>
+        <th>Mechanism</th>
+        <th>Cabin Thickness</th>
+        <th>Buffer Between Cabin and Shaft in Width</th>
+        <th>Buffer Between Cabin and Shaft in Depth</th>
+        <th>Total Space Occupy By Door Including Buffer</th>
+        <th>Cabin Width</th>
+        <th>Cabin Depth</th>
+    </tr>
+    <tr>
+        <td><input id="width13" type="number" /></td>
+        <td><input id="depth13" type="number" /></td>
+        <td>550</td>
+        <td>60</td>
+        <td>150</td>
+        <td>90</td>
+        <td>200</td>
+        <td id="cabinWidth13"></td>
+        <td id="cabinDepth13"></td>
+    </tr>
+</table>
+
+<!-- MRL Auto Central Opening (Mechanism in Depth) -->
+<h3>MRL Auto Central Opening (Mechanism in Depth)</h3>
+<table>
+    <tr>
+        <th>Width</th>
+        <th>Depth</th>
+        <th>Mechanism</th>
+        <th>Cabin Thickness</th>
+        <th>Buffer Between Cabin and Shaft in Width</th>
+        <th>Buffer Between Cabin and Shaft in Depth</th>
+        <th>Total Space Occupy By Door Including Buffer</th>
+        <th>Guide Rails Two Side</th>
+        <th>Cabin Width</th>
+        <th>Cabin Depth</th>
+    </tr>
+    <tr>
+        <td><input id="width14" type="number" /></td>
+        <td><input id="depth14" type="number" /></td>
+        <td>250</td>
+        <td>60</td>
+        <td>0</td>
+        <td>0</td>
+        <td>200</td>
+        <td>300</td>
+        <td id="cabinWidth14"></td>
+        <td id="cabinDepth14"></td>
+    </tr>
+</table>
+
+<!-- MRL Auto Telescope Opening (Mechanism in Width) -->
+<h3>MRL Auto Telescope Opening (Mechanism in Width)</h3>
+<table>
+    <tr>
+        <th>Width</th>
+        <th>Depth</th>
+        <th>Mechanism</th>
+        <th>Cabin Thickness</th>
+        <th>Buffer Between Cabin and Shaft in Width</th>
+        <th>Buffer Between Cabin and Shaft in Depth</th>
+        <th>Total Space Occupy By Door Including Buffer</th>
+        <th>Cabin Width</th>
+        <th>Cabin Depth</th>
+    </tr>
+    <tr>
+        <td><input id="width15" type="number" /></td>
+        <td><input id="depth15" type="number" /></td>
+        <td>550</td>
+        <td>60</td>
+        <td>150</td>
+        <td>90</td>
+        <td>270</td>
+        <td id="cabinWidth15"></td>
+        <td id="cabinDepth15"></td>
+    </tr>
+</table>
+
+<!-- MRL Auto Telescopic Opening (Mechanism in Depth) -->
+<h3>MRL Auto Telescopic Opening (Mechanism in Depth)</h3>
+<table>
+    <tr>
+        <th>Width</th>
+        <th>Depth</th>
+        <th>Mechanism</th>
+        <th>Cabin Thickness</th>
+        <th>Buffer Between Cabin and Shaft in Width</th>
+        <th>Buffer Between Cabin and Shaft in Depth</th>
+        <th>Total Space Occupy By Door Including Buffer</th>
+        <th>Guide Rails Two Side</th>
+        <th>Cabin Width</th>
+        <th>Cabin Depth</th>
+    </tr>
+    <tr>
+        <td><input id="width16" type="number" /></td>
+        <td><input id="depth16" type="number" /></td>
+        <td>250</td>
+        <td>60</td>
+        <td>0</td>
+        <td>0</td>
+        <td>270</td>
+        <td>300</td>
+        <td id="cabinWidth16"></td>
+        <td id="cabinDepth16"></td>
+    </tr>
+</table>
+
+<!-- MRL Manual Swing Door (Mechanism in Width) -->
+<h3>MRL Manual Swing Door (Mechanism in Width)</h3>
+<table>
+    <tr>
+        <th>Width</th>
+        <th>Depth</th>
+        <th>Mechanism</th>
+        <th>Cabin Thickness</th>
+        <th>Buffer Between Cabin and Shaft in Width</th>
+        <th>Buffer Between Cabin and Shaft in Depth</th>
+        <th>Total Space Occupy By Door Including Buffer</th>
+        <th>Cabin Width</th>
+        <th>Cabin Depth</th>
+    </tr>
+    <tr>
+        <td><input id="width17" type="number" /></td>
+        <td><input id="depth17" type="number" /></td>
+        <td>550</td>
+        <td>60</td>
+        <td>150</td>
+        <td>90</td>
+        <td>60</td>
+        <td id="cabinWidth17"></td>
+        <td id="cabinDepth17"></td>
+    </tr>
+</table>
+
+<!-- MRL Manual Swing Door (Mechanism in Depth) -->
+<h3>MRL Manual Swing Door (Mechanism in Depth)</h3>
+<table>
+    <tr>
+        <th>Width</th>
+        <th>Depth</th>
+        <th>Mechanism</th>
+        <th>Cabin Thickness</th>
+        <th>Buffer Between Cabin and Shaft in Width</th>
+        <th>Buffer Between Cabin and Shaft in Depth</th>
+        <th>Total Space Occupy By Door Including Buffer</th>
+        <th>Guide Rails Two Side</th>
+        <th>Cabin Width</th>
+        <th>Cabin Depth</th>
+    </tr>
+    <tr>
+        <td><input id="width18" type="number" /></td>
+        <td><input id="depth18" type="number" /></td>
+        <td>250</td>
+        <td>60</td>
+        <td>0</td>
+        <td>0</td>
+        <td>60</td>
+        <td>300</td>
+        <td id="cabinWidth18"></td>
+        <td id="cabinDepth18"></td>
+    </tr>
+</table>
+
+
+<script src="feasibility.js"></script>
+<script src="calculateDimensions.js"></script>
+</body>
+</html>
