@@ -1,16 +1,24 @@
 /* General styles for the body */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 20px;
-    background-color: #f9f9f9; /* Light background for better contrast */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;    /* Center elements horizontally */
+    justify-content: center; /* Center elements vertically */
+    height: 100vh;          /* Full viewport height */
+    margin: 0;              /* Remove default margin */
 }
 
+/* Style for the title */
 .title {
     text-align: center; /* Center the title text */
     margin: 20px 0;    /* Add some vertical spacing */
     font-size: 24px;    /* Adjust the font size as needed */
     font-weight: bold;  /* Make the title bold */
+}
+
+/* Optional: Style for the logo */
+.logo {
+    margin-bottom: 20px; /* Space between logo and title */
 }
 
 /* Heading styles */
