@@ -18,8 +18,10 @@ function login() {
   const password = document.getElementById("password").value;
   const errorMessage = document.getElementById("error-message");
 
-  // Check credentials
-  if (username === validUsername && password === validPassword) {
+  // Check credentials against multiple users
+  const user = users.find(user => user.username === username && user.password === password);
+
+  if (user) {
     // Set logged-in flag in local storage
     localStorage.setItem("isLoggedIn", "true");
     window.location.href = "dashboard.html";
