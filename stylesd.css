@@ -28,7 +28,7 @@ body.dashboard .logo-container img {
 /* Text Styling for all screens */
 h2 {
   margin-bottom: 20px;
-  color: #4CAF50; /* Stylish color */
+  color: #000000; /* Stylish color */
   font-family: 'Arial Black', Arial, sans-serif; /* Bold font */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Text shadow for depth */
 }
