@@ -6,6 +6,13 @@
   <link rel="apple-touch-icon" sizes="180x180" href="brio-2.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="brio-2.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="brio-2.png" />
+  <script>
+    // Check if the user is logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      // Redirect to login page if not logged in
+      window.location.href = "index.html";
+    }
+  </script>
   <title>Dashboard</title>
   <link rel="stylesheet" href="stylesd.css">
   <link rel="icon" href="path/to/favicon.ico" type="image/x-icon"> <!-- Update path for favicon -->
