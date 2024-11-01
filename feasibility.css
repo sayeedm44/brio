@@ -1,1 +1,274 @@
+/* Logo and Title */
+img[alt="Brio Logo"] {
+    float: left;
+    width: 100px;
+    height: auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 0;
+}
+
+p.note {
+    color: red; /* Updated to red color */
+    font-size: 1em;
+    margin-top: 0.5em;
+}
+
+/* Tables Layout */
+.tables-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.table-wrapper {
+    flex: 1;
+    min-width: 300px;
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Set background color and styling for all table-wrapper classes from 1 to 24 */
+.table-wrapper1 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper2 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper3 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper4 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper5 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper6 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper7 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper8 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper9 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper10 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper11 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper12 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper13 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper14 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper15 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper16 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper17 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper18 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper19 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper20 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper21 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper22 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper23 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+.table-wrapper24 {
+    background-color: #f3f3f3; /* Set background color to #f3f3f3 */
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5em;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+
+/* Background color for specific table cells */
+#displayWidth1, #displayDepth1,
+td.fixed-value, 
+td.result-cell {
+    background-color: #f3f3f3; /* Set background color */
+}
+
+/* Colors and Styling for Specific Sections */
+h2, h3 {
+    text-align: center;
+    color: #806404;
+    margin-top: 1em;
+}
+
+th {
+    background-color: #684ca4;
+    color: white;
+}
+
+td.fixed-value {
+    background-color: #f3f3f3;
+    color: black;
+}
+
+td.result-cell {
+    background-color: #f3f3f3;
+    color: white;
+}
+
+/* Responsive Tables */
+@media (max-width: 768px) {
+    .tables-container {
+        flex-direction: column;
+    }
+}
+
+/* Footer Note */
+.footer-note {
+    color: #f3f3f3;
+    font-weight: bold;
+}
+
+p.warning { /* New class for the additional note */
+    color: red; /* Make this text red*/
+}
+
+/* Special Section Backgrounds */
+.section-bg {
+    background-color: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 1em;
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 1024px) {
+    .tables-container {
+        flex-direction: column; /* Stack tables vertically on smaller screens */
+    }
+
+    .table-wrapper {
+        max-width: 100%; /* Ensure full width on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5em; /* Smaller font for mobile devices */
+    }
+
+    p.note {
+        font-size: 0.9em; /* Smaller font for mobile devices */
+    }
+
+    th, td {
+        font-size: 0.9em; /* Adjust table font size for better readability */
+        padding: 8px; /* Reduce padding for smaller screens */
+    }
+}
+
 
