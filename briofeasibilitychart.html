@@ -7,7 +7,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="brio-2.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="brio-2.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="brio-2.png" />
-  <img src="logo.png" alt="Brio Logo" class="logo" style="float: left; width: 100px; height: auto;">
+  <img src="logo.png" alt="Brio Logo" style="float: left; width: 100px; height: auto;">
+    <title>Brio Feasibility Chart</title>
+     <link rel="stylesheet" href="feasibility.css"> 
   <script>
     // Check if the user is logged in
     if (localStorage.getItem("isLoggedIn") !== "true") {
@@ -20,8 +22,9 @@
 <body>
 
     <h1>Brio Feasibility Chart</h1>
-    <p>Note: All Measurements are in Millimeters (mm) <br>Please provide values for width and depth.</p>
-
+    <p class="warning">Note: All Measurements are in Millimeters (mm), Please provide values for width and depth.</p>
+    <div class="tables-container">
+    <div class="table-wrapper">
     <h2>Centre Opening Min Shaft Sizes</h2>
     <table>
         <tr>
@@ -38,7 +41,8 @@
         <tr><td>900</td><td>1950</td></tr>
         <tr><td>1000</td><td>2150</td></tr>
     </table>
-
+ </div>
+    <div class="table-wrapper">
     <h2>Telescopic (LH/RH) Min Shaft Sizes</h2>
     <table>
         <tr>
@@ -55,13 +59,45 @@
         <tr><td>900</td><td>1650</td></tr>
         <tr><td>1000</td><td>1780</td></tr>
     </table>
+    </div>
+</div>
+    <h2>Feet to Millimeters Converter</h2>
+<label for="feet">Feet:</label>
+<input id="feet" type="number" placeholder="Enter feet" />
+<button onclick="convertFeetToMm()">Convert</button>
+<p>Millimeters: <span id="millimeters"></span></p>
 
-     <h1>Feet to Millimeters Converter</h1>
-    <input id="feetInput" type="number" placeholder="Enter feet" />
-    <button onclick="convertToMillimeters()">Convert</button>
-    <div class="result" id="result"></div>
+<script>
+    function convertFeetToMm() {
+        // Get the feet value entered by the user
+        const feet = parseFloat(document.getElementById("feet").value);
+        
+        // Check if the input is a valid number
+        if (isNaN(feet)) {
+            alert("Please enter a valid number for feet.");
+            return;
+        }
+
+        // Conversion factor: 1 foot = 304.8 millimeters
+        const millimeters = feet * 304.8;
+
+        // Display the result in the millimeters span
+        document.getElementById("millimeters").textContent = millimeters.toFixed(2);
+    }
+</script>
+
+
+    <h2>Enter Dimensions Once</h2>
+    <label for="mainWidth">Width (in mm):</label>
+    <input id="mainWidth" type="number" placeholder="Enter width" />
+    <label for="mainDepth">Depth (in mm):</label>
+    <input id="mainDepth" type="number" placeholder="Enter depth" />
+    <button onclick="calculateCabinDimensions()">Calculate</button>
+
     
     <h2>Hydraulic</h2>
+    <div class="tables-container1">
+    <div class="table-wrapper1">
     <h3>Hydraulic Auto Door Central Opening (Mechanism in Width)</h3>
     <table>
         <tr>
@@ -76,18 +112,22 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input type="number" id="width1" placeholder="Enter Width"></td>
-            <td><input type="number" id="depth1" placeholder="Enter Depth"></td>
-            <td>300</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>200</td>
-            <td><span id="cabinWidth1">-</span></td>
-            <td><span id="cabinDepth1">-</span></td>
+            <td id="displayWidth1"></td>
+            <td id="displayDepth1"></td>
+            <td class="fixed-value">300</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">200</td>
+            <td class="result-cell"><input id="cabinWidth1"  placeholder="Width 1" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth1"  placeholder="Depth 1" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+    </div>
+    <div class="tables-container2">
+    <div class="table-wrapper2">
     <h3>Hydraulic Auto Door Central Opening (Mechanism in Depth)</h3>
     <table>
         <tr>
@@ -102,18 +142,22 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input type="number" id="width2" placeholder="Enter Width"></td>
-            <td><input type="number" id="depth2" placeholder="Enter Depth"></td>
-            <td>300</td>
-            <td>60</td>
-            <td>70</td>
-            <td>70</td>
-            <td>200</td>
-            <td><span id="cabinWidth2">-</span></td>
-            <td><span id="cabinDepth2">-</span></td>
+            <td id="displayWidth2"></td>
+            <td id="displayDepth2"></td>
+            <td class="fixed-value">300</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">70</td>
+            <td class="fixed-value">70</td>
+            <td class="fixed-value">200</td>
+            <td class="result-cell"><input id="cabinWidth2" type="text" placeholder="Width 2" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth2" type="text" placeholder="Depth 2" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+    </div>
+    <div class="tables-container3">
+    <div class="table-wrapper3">
     <h3>Hydraulic Auto Door Telescopic Opening (Mechanism in Width)</h3>
     <table>
         <tr>
@@ -128,18 +172,22 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input type="number" id="width3" placeholder="Enter Width"></td>
-            <td><input type="number" id="depth3" placeholder="Enter Depth"></td>
-            <td>300</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>270</td>
-            <td><span id="cabinWidth3">-</span></td>
-            <td><span id="cabinDepth3">-</span></td>
+            <td id="displayWidth3"></td>
+            <td id="displayDepth3"></td>
+            <td class="fixed-value">300</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">270</td>
+            <td class="result-cell"><input id="cabinWidth3" type="text" placeholder="Width 3" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth3" type="text" placeholder="Depth 3" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+    </div>
+    <div class="tables-container4">
+    <div class="table-wrapper4">
     <h3>Hydraulic Auto Door Telescopic Opening (Mechanism in Depth)</h3>
     <table>
         <tr>
@@ -154,18 +202,22 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input type="number" id="width4" placeholder="Enter Width"></td>
-            <td><input type="number" id="depth4" placeholder="Enter Depth"></td>
-            <td>300</td>
-            <td>60</td>
-            <td>70</td>
-            <td>70</td>
-            <td>270</td>
-            <td><span id="cabinWidth4">-</span></td>
-            <td><span id="cabinDepth4">-</span></td>
+            <td id="displayWidth4"></td>
+            <td id="displayDepth4"></td>
+            <td class="fixed-value">300</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">70</td>
+            <td class="fixed-value">70</td>
+            <td class="fixed-value">270</td>
+            <td class="result-cell"><input id="cabinWidth4" type="text" placeholder="Width 4" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth4" type="text" placeholder="Depth 4" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+    </div>
+    <div class="tables-container5">
+    <div class="table-wrapper5">
     <h3>Hydraulic Manual Swing Door (Mechanism in Width)</h3>
     <table>
         <tr>
@@ -180,18 +232,22 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input type="number" id="width5" placeholder="Enter Width"></td>
-            <td><input type="number" id="depth5" placeholder="Enter Depth"></td>
-            <td>300</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td><span id="cabinWidth5">-</span></td>
-            <td><span id="cabinDepth5">-</span></td>
+            <td id="displayWidth5"></td>
+            <td id="displayDepth5"></td>
+            <td class="fixed-value">300</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">90</td>
+            <td class="result-cell"><input id="cabinWidth5" type="text" placeholder="Width 5" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth5" type="text" placeholder="Depth 5" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+    </div>
+    <div class="tables-container6">
+    <div class="table-wrapper6">
     <h3>Hydraulic Manual Swing Door (Mechanism in Depth)</h3>
     <table>
         <tr>
@@ -206,20 +262,24 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input type="number" id="width6" placeholder="Enter Width"></td>
-            <td><input type="number" id="depth6" placeholder="Enter Depth"></td>
-            <td>300</td>
-            <td>60</td>
-            <td>70</td>
-            <td>70</td>
-            <td>60</td>
-            <td><span id="cabinWidth6">-</span></td>
-            <td><span id="cabinDepth6">-</span></td>
+            <td id="displayWidth6"></td>
+            <td id="displayDepth6"></td>
+            <td class="fixed-value">300</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">70</td>
+            <td class="fixed-value">70</td>
+            <td class="fixed-value">90</td>
+            <td class="result-cell"><input id="cabinWidth6" type="text" placeholder="Width 6" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth6" type="text" placeholder="Depth 6" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+    </div>
+   
      <h2>Home Belt</h2>
-
+    <div class="tables-container7">
+    <div class="table-wrapper7">
     <!-- Table: Home Belt Auto Door Central Opening (Mechanism in Width) -->
     <h3>Home Belt Auto Door Central Opening (Mechanism in Width)</h3>
     <table>
@@ -235,19 +295,23 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width7" type="number" /></td>
-            <td><input id="depth7" type="number" /></td>
-            <td>400</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>200</td>
-            <td id="cabinWidth7"></td>
-            <td id="cabinDepth7"></td>
+            <td id="displayWidth7"></td>
+            <td id="displayDepth7"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">200</td>
+            <td class="result-cell"><input id="cabinWidth7" type="text" placeholder="Width 7" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth7" type="text" placeholder="Depth 7" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+    </div>
     <!-- Table: Home Belt Auto Door Central Opening (Mechanism in Depth) -->
+    <div class="tables-container8">
+    <div class="table-wrapper8">
     <h3>Home Belt Auto Door Central Opening (Mechanism in Depth)</h3>
     <table>
         <tr>
@@ -262,19 +326,23 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width8" type="number" /></td>
-            <td><input id="depth8" type="number" /></td>
-            <td>400</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>200</td>
-            <td id="cabinWidth8"></td>
-            <td id="cabinDepth8"></td>
+            <td id="displayWidth8"></td>
+            <td id="displayDepth8"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">200</td>
+            <td class="result-cell"><input id="cabinWidth8" type="text" placeholder="Width 8" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth8" type="text" placeholder="Depth 8" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+    </div>
     <!-- Table: Home Belt Auto Door Telescopic Opening (Mechanism in Width) -->
+     <div class="tables-container9">
+    <div class="table-wrapper9">
     <h3>Home Belt Auto Door Telescopic Opening (Mechanism in Width)</h3>
     <table>
         <tr>
@@ -289,19 +357,23 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width9" type="number" /></td>
-            <td><input id="depth9" type="number" /></td>
-            <td>300</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td id="cabinWidth9"></td>
-            <td id="cabinDepth9"></td>
+            <td id="displayWidth9"></td>
+            <td id="displayDepth9"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">270</td>
+            <td class="result-cell"><input id="cabinWidth9" type="text" placeholder="Width 9" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth9" type="text" placeholder="Depth 9" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+     </div>
     <!-- Table: Home Belt Auto Door Telescopic Opening (Mechanism in Depth) -->
+     <div class="tables-container10">
+    <div class="table-wrapper10">
     <h3>Home Belt Auto Door Telescopic Opening (Mechanism in Depth)</h3>
     <table>
         <tr>
@@ -316,19 +388,23 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width10" type="number" /></td>
-            <td><input id="depth10" type="number" /></td>
-            <td>400</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>270</td>
-            <td id="cabinWidth10"></td>
-            <td id="cabinDepth10"></td>
+            <td id="displayWidth10"></td>
+            <td id="displayDepth10"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">270</td>
+            <td class="result-cell"><input id="cabinWidth10" type="text" placeholder="Width 10" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth10" type="text" placeholder="Depth 10" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+     </div>
     <!-- Table: Home Belt Manual Swing Door (Mechanism in Width) -->
+     <div class="tables-container11">
+    <div class="table-wrapper11">
     <h3>Home Belt Manual Swing Door (Mechanism in Width)</h3>
     <table>
         <tr>
@@ -343,19 +419,23 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width11" type="number" /></td>
-            <td><input id="depth11" type="number" /></td>
-            <td>400</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td id="cabinWidth11"></td>
-            <td id="cabinDepth11"></td>
+            <td id="displayWidth11"></td>
+            <td id="displayDepth11"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">90</td>
+            <td class="result-cell"><input id="cabinWidth11" type="text" placeholder="Width 11" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth11" type="text" placeholder="Depth 11" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+     </div>
     <!-- Table: Home Belt Manual Swing Door (Mechanism in Depth) -->
+     <div class="tables-container12">
+    <div class="table-wrapper12">
     <h3>Home Belt Manual Swing Door (Mechanism in Depth)</h3>
     <table>
         <tr>
@@ -370,22 +450,25 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width12" type="number" /></td>
-            <td><input id="depth12" type="number" /></td>
-            <td>400</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td id="cabinWidth12"></td>
-            <td id="cabinDepth12"></td>
+            <td id="displayWidth12"></td>
+            <td id="displayDepth12"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">90</td>
+            <td class="result-cell"><input id="cabinWidth12" type="text" placeholder="Width 12" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth12" type="text" placeholder="Depth 12" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+    </div>
 
 
         <h2>Home Rope</h2>
-
+    <div class="tables-container13">
+    <div class="table-wrapper13">
     <!-- Table: Home Rope Auto Door Central Opening (Mechanism in Width) -->
     <h3>Home Rope Auto Door Central Opening (Mechanism in Width)</h3>
     <table>
@@ -401,19 +484,23 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width7" type="number" /></td>
-            <td><input id="depth7" type="number" /></td>
-            <td>400</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>200</td>
-            <td id="cabinWidth7"></td>
-            <td id="cabinDepth7"></td>
+            <td id="displayWidth13"></td>
+            <td id="displayDepth13"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">200</td>
+            <td class="result-cell"><input id="cabinWidth13" type="text" placeholder="Width 13" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth13" type="text" placeholder="Depth 13" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+    </div>
     <!-- Table: Home Rope Auto Door Central Opening (Mechanism in Depth) -->
+     <div class="tables-container14">
+    <div class="table-wrapper14">
     <h3>Home Rope Auto Door Central Opening (Mechanism in Depth)</h3>
     <table>
         <tr>
@@ -428,19 +515,23 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width8" type="number" /></td>
-            <td><input id="depth8" type="number" /></td>
-            <td>400</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>200</td>
-            <td id="cabinWidth8"></td>
-            <td id="cabinDepth8"></td>
+            <td id="displayWidth14"></td>
+            <td id="displayDepth14"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">200</td>
+            <td class="result-cell"><input id="cabinWidth14" type="text" placeholder="Width 14" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth14" type="text" placeholder="Depth 14" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+     </div>
     <!-- Table: Home Rope Auto Door Telescopic Opening (Mechanism in Width) -->
+     <div class="tables-container15">
+    <div class="table-wrapper15">
     <h3>Home Rope Auto Door Telescopic Opening (Mechanism in Width)</h3>
     <table>
         <tr>
@@ -455,19 +546,23 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width9" type="number" /></td>
-            <td><input id="depth9" type="number" /></td>
-            <td>300</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td id="cabinWidth9"></td>
-            <td id="cabinDepth9"></td>
+            <td id="displayWidth15"></td>
+            <td id="displayDepth15"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">270</td>
+            <td class="result-cell"><input id="cabinWidth15" type="text" placeholder="Width 15" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth15" type="text" placeholder="Depth 15" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+     </div>
     <!-- Table: Home Rope Auto Door Telescopic Opening (Mechanism in Depth) -->
+     <div class="tables-container16">
+    <div class="table-wrapper16">
     <h3>Home Rope Auto Door Telescopic Opening (Mechanism in Depth)</h3>
     <table>
         <tr>
@@ -482,19 +577,23 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width10" type="number" /></td>
-            <td><input id="depth10" type="number" /></td>
-            <td>400</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>270</td>
-            <td id="cabinWidth10"></td>
-            <td id="cabinDepth10"></td>
+            <td id="displayWidth16"></td>
+            <td id="displayDepth16"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">270</td>
+            <td class="result-cell"><input id="cabinWidth16" type="text" placeholder="Width 16" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth16" type="text" placeholder="Depth 16" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>   
+     </div>
     <!-- Table: Home Rope Manual Swing Door (Mechanism in Width) -->
+     <div class="tables-container17">
+    <div class="table-wrapper17">
     <h3>Home Rope Manual Swing Door (Mechanism in Width)</h3>
     <table>
         <tr>
@@ -509,19 +608,23 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width11" type="number" /></td>
-            <td><input id="depth11" type="number" /></td>
-            <td>400</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td id="cabinWidth11"></td>
-            <td id="cabinDepth11"></td>
+            <td id="displayWidth17"></td>
+            <td id="displayDepth17"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">90</td>
+            <td class="result-cell"><input id="cabinWidth17" type="text" placeholder="Width 17" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth17" type="text" placeholder="Depth 17" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+     </div>    
     <!-- Table: Home Rope Manual Swing Door (Mechanism in Depth) -->
+     <div class="tables-container18">
+    <div class="table-wrapper18">
     <h3>Home Rope Manual Swing Door (Mechanism in Depth)</h3>
     <table>
         <tr>
@@ -536,20 +639,23 @@
             <th>Cabin Depth</th>
         </tr>
         <tr>
-            <td><input id="width12" type="number" /></td>
-            <td><input id="depth12" type="number" /></td>
-            <td>400</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td id="cabinWidth12"></td>
-            <td id="cabinDepth12"></td>
+            <td id="displayWidth18"></td>
+            <td id="displayDepth18"></td>
+            <td class="fixed-value">420</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">60</td>
+            <td class="fixed-value">90</td>
+            <td class="result-cell"><input id="cabinWidth18" type="text" placeholder="Width 18" readonly /></td>
+            <td class="result-cell"><input id="cabinDepth18" type="text" placeholder="Depth 18" readonly /></td>
         </tr>
     </table>
-
+    <p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+    </div>
+    </div>
 <h2>MRL</h2>
-
+<div class="tables-container19">
+    <div class="table-wrapper19">
 <!-- MRL Auto Central Opening (Mechanism in Width) -->
 <h3>MRL Auto Central Opening (Mechanism in Width)</h3>
 <table>
@@ -565,19 +671,23 @@
         <th>Cabin Depth</th>
     </tr>
     <tr>
-        <td><input id="width13" type="number" /></td>
-        <td><input id="depth13" type="number" /></td>
-        <td>550</td>
-        <td>60</td>
-        <td>150</td>
-        <td>90</td>
-        <td>200</td>
-        <td id="cabinWidth13"></td>
-        <td id="cabinDepth13"></td>
+        <td id="displayWidth19"></td>
+        <td id="displayDepth19"></td>
+        <td class="fixed-value">550</td>
+        <td class="fixed-value">60</td>
+        <td class="fixed-value">0</td>
+        <td class="fixed-value">90</td>
+        <td class="fixed-value">200</td>
+        <td class="result-cell"><input id="cabinWidth19" type="text" placeholder="Width 19" readonly /></td>
+        <td class="result-cell"><input id="cabinDepth19" type="text" placeholder="Depth 19" readonly /></td>
     </tr>
 </table>
-
+<p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+</div>
+</div>
 <!-- MRL Auto Central Opening (Mechanism in Depth) -->
+     <div class="tables-container20">
+<div class="table-wrapper20">
 <h3>MRL Auto Central Opening (Mechanism in Depth)</h3>
 <table>
     <tr>
@@ -593,20 +703,24 @@
         <th>Cabin Depth</th>
     </tr>
     <tr>
-        <td><input id="width14" type="number" /></td>
-        <td><input id="depth14" type="number" /></td>
-        <td>250</td>
-        <td>60</td>
-        <td>0</td>
-        <td>0</td>
-        <td>200</td>
-        <td>300</td>
-        <td id="cabinWidth14"></td>
-        <td id="cabinDepth14"></td>
+        <td id="displayWidth20"></td>
+        <td id="displayDepth20"></td>
+        <td class="fixed-value">250</td>
+        <td class="fixed-value">60</td>
+        <td class="fixed-value">0</td>
+        <td class="fixed-value">0</td>
+        <td class="fixed-value">200</td>
+        <td class="fixed-value">300</td>
+        <td class="result-cell"><input id="cabinWidth20" type="text" placeholder="Width 20" readonly /></td>
+        <td class="result-cell"><input id="cabinDepth20" type="text" placeholder="Depth 20" readonly /></td>
     </tr>
 </table>
-
+<p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+</div>
+     </div>
 <!-- MRL Auto Telescope Opening (Mechanism in Width) -->
+ <div class="tables-container21">
+<div class="table-wrapper21">
 <h3>MRL Auto Telescope Opening (Mechanism in Width)</h3>
 <table>
     <tr>
@@ -621,19 +735,23 @@
         <th>Cabin Depth</th>
     </tr>
     <tr>
-        <td><input id="width15" type="number" /></td>
-        <td><input id="depth15" type="number" /></td>
-        <td>550</td>
-        <td>60</td>
-        <td>150</td>
-        <td>90</td>
-        <td>270</td>
-        <td id="cabinWidth15"></td>
-        <td id="cabinDepth15"></td>
+        <td id="displayWidth21"></td>
+        <td id="displayDepth21"></td>
+        <td class="fixed-value">550</td>
+        <td class="fixed-value">60</td>
+        <td class="fixed-value">0</td>
+        <td class="fixed-value">90</td>
+        <td class="fixed-value">270</td>
+        <td class="result-cell"><input id="cabinWidth21" type="text" placeholder="Width 21" readonly /></td>
+        <td class="result-cell"><input id="cabinDepth21" type="text" placeholder="Depth 21" readonly /></td>
     </tr>
 </table>
-
+<p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+</div>
+ </div>
 <!-- MRL Auto Telescopic Opening (Mechanism in Depth) -->
+     <div class="tables-container22">
+<div class="table-wrapper22">
 <h3>MRL Auto Telescopic Opening (Mechanism in Depth)</h3>
 <table>
     <tr>
@@ -649,20 +767,24 @@
         <th>Cabin Depth</th>
     </tr>
     <tr>
-        <td><input id="width16" type="number" /></td>
-        <td><input id="depth16" type="number" /></td>
-        <td>250</td>
-        <td>60</td>
-        <td>0</td>
-        <td>0</td>
-        <td>270</td>
-        <td>300</td>
-        <td id="cabinWidth16"></td>
-        <td id="cabinDepth16"></td>
+        <td id="displayWidth22"></td>
+        <td id="displayDepth22"></td>
+        <td class="fixed-value">250</td>
+        <td class="fixed-value">60</td>
+        <td class="fixed-value">0</td>
+        <td class="fixed-value">0</td>
+        <td class="fixed-value">270</td>
+        <td class="fixed-value">300</td>
+        <td class="result-cell"><input id="cabinWidth22" type="text" placeholder="Width 22" readonly /></td>
+        <td class="result-cell"><input id="cabinDepth22" type="text" placeholder="Depth 22" readonly /></td>
     </tr>
 </table>
-
+<p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+</div>
+     </div>
 <!-- MRL Manual Swing Door (Mechanism in Width) -->
+     <div class="tables-container23">
+<div class="table-wrapper23">
 <h3>MRL Manual Swing Door (Mechanism in Width)</h3>
 <table>
     <tr>
@@ -677,19 +799,23 @@
         <th>Cabin Depth</th>
     </tr>
     <tr>
-        <td><input id="width17" type="number" /></td>
-        <td><input id="depth17" type="number" /></td>
-        <td>550</td>
-        <td>60</td>
-        <td>150</td>
-        <td>90</td>
-        <td>60</td>
-        <td id="cabinWidth17"></td>
-        <td id="cabinDepth17"></td>
+        <td id="displayWidth23"></td>
+        <td id="displayDepth23"></td>
+        <td class="fixed-value">550</td>
+        <td class="fixed-value">60</td>
+        <td class="fixed-value">0</td>
+        <td class="fixed-value">90</td>
+        <td class="fixed-value">90</td>
+        <td class="result-cell"><input id="cabinWidth23" type="text" placeholder="Width 23" readonly /></td>
+        <td class="result-cell"><input id="cabinDepth23" type="text" placeholder="Depth 23" readonly /></td>
     </tr>
 </table>
-
+<p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+</div>
+     </div>
 <!-- MRL Manual Swing Door (Mechanism in Depth) -->
+     <div class="tables-container24">
+<div class="table-wrapper24">
 <h3>MRL Manual Swing Door (Mechanism in Depth)</h3>
 <table>
     <tr>
@@ -705,21 +831,24 @@
         <th>Cabin Depth</th>
     </tr>
     <tr>
-        <td><input id="width18" type="number" /></td>
-        <td><input id="depth18" type="number" /></td>
-        <td>250</td>
-        <td>60</td>
-        <td>0</td>
-        <td>0</td>
-        <td>60</td>
-        <td>300</td>
-        <td id="cabinWidth18"></td>
-        <td id="cabinDepth18"></td>
+        <td id="displayWidth24"></td>
+        <td id="displayDepth24"></td>
+        <td class="fixed-value">250</td>
+        <td class="fixed-value">60</td>
+        <td class="fixed-value">0</td>
+        <td class="fixed-value">0</td>
+        <td class="fixed-value">90</td>
+        <td class="fixed-value">300</td>
+        <td class="result-cell"><input id="cabinWidth24" type="text" placeholder="Width 24" readonly /></td>
+        <td class="result-cell"><input id="cabinDepth24" type="text" placeholder="Depth 24" readonly /></td>
     </tr>
 </table>
+<p class="warning"><strong>Note:</strong> The measurements provided in this table are approximate estimates. Actual production dimensions may vary based on specific project requirements and configurations.</p>
+</div>
+</div>
 
 
-<script src="feasibility.js"></script>
 <script src="calculateDimensions.js"></script>
+<script src="displayDimensions.js"></script>
 </body>
 </html>
