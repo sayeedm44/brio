@@ -1,43 +1,97 @@
-/* General table styling */
+/* Set a light gray background for the whole page */
+body {
+    background-color: #f3f3f3;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Center and style the main title */
+h1 {
+    text-align: center;
+    font-size: 2em;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Style the tables with black border lines */
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    table-layout: fixed; /* Fixes table layout to prevent overflow */
+    table-layout: auto;
 }
 
 table, th, td {
     border: 1px solid black;
 }
 
-/* Add padding to cells to prevent overlap */
-td, th {
-    padding: 12px; /* Increased padding */
-    overflow-wrap: break-word; /* Ensures text wraps within the cell */
-    word-break: break-word; /* Allows words to break if necessary */
-    text-align: center;
+/* Set headers in each table to be bold and black */
+th {
+    font-weight: bold;
+    color: black;
+    padding: 8px;
+    background-color: #2596be; /* For specific headers */
 }
-/* Add pa */
-/* Specific styling for cells with colspan and rowspan */
+
+/* Adjust cells with colspan or rowspan to prevent text overlap */
 td[colspan], td[rowspan] {
-    padding: 16px; /* Increased padding for clarity */
-    white-space: normal; /* Allows text to wrap within cell */
-    vertical-align: middle; /* Aligns text to the middle */
+    padding: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+    vertical-align: top;
 }
 
-
-/* Example specific cell width (optional, can adjust based on your content) */
-td[colspan="4"] {
-    width: 60%; /* Set an appropriate width */
+/* Style specific table data cells in red and bold */
+td:contains("Classic | MS Powder Coated Finish"),
+td:contains("Pro | SS Hairline Finish"),
+td:contains("Elegance Cabin | Custom Interiors") {
+    color: red;
+    font-weight: bold;
 }
 
-td[rowspan="6"] {
-    width: 30%; /* Set an appropriate width */
+/* Set yellow background for specific rows in tables */
+td:contains("Elegance Cabin | Custom Interiors"),
+td:contains("MRL- Gearless RopeDriven-PREMIUM"),
+td:contains("Pro | SS Hairline Finish"),
+td:contains("Classic | MS Powder Coated Finish") {
+    background-color: yellow;
 }
 
-/* Style for long text in narrow cells */
-td:contains("Additional ₹1.65 lakhs") {
-    font-size: 0.9em; /* Slightly smaller font to fit text */
+/* Style section headers with specific colors */
+h2 {
+    font-weight: bold;
+    color: black;
+    margin-top: 40px;
+}
+
+h2:contains("Collapsible Doors") {
+    color: black;
+    font-weight: bold;
+}
+
+h2:contains("No Pit, No Head Room, No Machine Room Needed, and Vastu Compliant - Imported") {
+    color: lightblue;
+    font-weight: bold;
+}
+
+/* Style specific header rows */
+th:contains("Monteluxe"),
+th:contains("RITZ"),
+th:contains("VISTA") {
+    background-color: #2596be;
+    color: black;
+    font-weight: bold;
+}
+
+/* Style specific table cells with yellow background */
+td:contains("G+1 (2 Stops)"),
+td:contains("G+2 (3 Stops)"),
+td:contains("G+3 (4 Stops)"),
+td:contains("G+4 (5 Stops)") {
+    background-color: yellow;
+    color: black;
 }
 
 /* Ensure non-bold, black text for regular table cells */
