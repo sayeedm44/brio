@@ -1,0 +1,119 @@
+/* Set a light gray background for the whole page */
+body {
+    background-color: #f3f3f3;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Center and style the main title */
+h1 {
+    text-align: center;
+    font-size: 2em;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Style the tables with black border lines */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    table-layout: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+/* Set headers in each table to be bold and black */
+th {
+    font-weight: bold;
+    color: black;
+    padding: 8px;
+    background-color: #2596be; /* For specific headers */
+}
+
+/* Adjust cells with colspan or rowspan to prevent text overlap */
+td[colspan], td[rowspan] {
+    padding: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+    vertical-align: top;
+}
+
+/* Style specific table data cells in red and bold */
+td:contains("Classic | MS Powder Coated Finish"),
+td:contains("Pro | SS Hairline Finish"),
+td:contains("Elegance Cabin | Custom Interiors") {
+    color: red;
+    font-weight: bold;
+}
+
+/* Set yellow background for specific rows in tables */
+td:contains("Elegance Cabin | Custom Interiors"),
+td:contains("MRL- Gearless RopeDriven-PREMIUM"),
+td:contains("Pro | SS Hairline Finish"),
+td:contains("Classic | MS Powder Coated Finish") {
+    background-color: yellow;
+}
+
+/* Style section headers with specific colors */
+h2 {
+    font-weight: bold;
+    color: black;
+    margin-top: 40px;
+}
+
+h2:contains("Collapsible Doors") {
+    color: black;
+    font-weight: bold;
+}
+
+h2:contains("No Pit, No Head Room, No Machine Room Needed, and Vastu Compliant - Imported") {
+    color: lightblue;
+    font-weight: bold;
+}
+
+/* Style specific header rows */
+th:contains("Monteluxe"),
+th:contains("RITZ"),
+th:contains("VISTA") {
+    background-color: #2596be;
+    color: black;
+    font-weight: bold;
+}
+
+/* Style specific table cells with yellow background */
+td:contains("G+1 (2 Stops)"),
+td:contains("G+2 (3 Stops)"),
+td:contains("G+3 (4 Stops)"),
+td:contains("G+4 (5 Stops)") {
+    background-color: yellow;
+    color: black;
+}
+
+/* Ensure non-bold, black text for regular table cells */
+td {
+    color: black;
+    font-weight: normal;
+    white-space: normal;
+}
+
+/* Make tables responsive for all screen sizes */
+@media screen and (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+    
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr {
+        margin-bottom: 10px;
+    }
+}
