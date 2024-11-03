@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brio Elevators - Price Chart 2024</title>
     <link rel="stylesheet" href="pricechart.css">
+    <script>
+    // Check if the user is logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      // Redirect to login page if not logged in
+      window.location.href = "index.html";
+    }
+  </script>
 </head>
 <body>
 
