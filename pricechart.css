@@ -25,14 +25,6 @@ td[colspan], td[rowspan] {
     vertical-align: middle; /* Aligns text to the middle */
 }
 
-/* High specificity to ensure it overrides other styles */
-body .centered-heading {
-    text-align: center;
-    font-weight: bold;
-    color: black;
-    margin-top: 20px;
-}
-
 
 /* Example specific cell width (optional, can adjust based on your content) */
 td[colspan="4"] {
