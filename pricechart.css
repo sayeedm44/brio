@@ -17,7 +17,7 @@ td, th {
     word-break: break-word; /* Allows words to break if necessary */
     text-align: center;
 }
-
+/* Add pa */
 /* Specific styling for cells with colspan and rowspan */
 td[colspan], td[rowspan] {
     padding: 16px; /* Increased padding for clarity */
