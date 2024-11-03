@@ -27,10 +27,10 @@ td[colspan], td[rowspan] {
 
 /* High specificity to ensure it overrides other styles */
 body .centered-heading {
-    text-align: center !important;
-    font-weight: bold !important;
-    color: black !important;
-    margin-top: 20px !important;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    margin-top: 20px;
 }
 
 
