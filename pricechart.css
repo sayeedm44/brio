@@ -25,13 +25,14 @@ td[colspan], td[rowspan] {
     vertical-align: middle; /* Aligns text to the middle */
 }
 
-/* Center all h2 elements on the page */
-h2 {
-    text-align: center;
-    font-weight: bold;
-    color: black;
-    margin-top: 20px;
+/* High specificity to ensure it overrides other styles */
+body .centered-heading {
+    text-align: center !important;
+    font-weight: bold !important;
+    color: black !important;
+    margin-top: 20px !important;
 }
+
 
 /* Example specific cell width (optional, can adjust based on your content) */
 td[colspan="4"] {
