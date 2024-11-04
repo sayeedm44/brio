@@ -43,7 +43,7 @@ td[colspan], td[rowspan] {
     vertical-align: top;
 }
 
-/* Style specific table data cells in red and bold */
+/* Style specific table data cells dd in red and bold */
 td:contains("Classic | MS Powder Coated Finish"),
 td:contains("Pro | SS Hairline Finish"),
 td:contains("Elegance Cabin | Custom Interiors") {
