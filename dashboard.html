@@ -1,35 +1,113 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="apple-touch-icon" sizes="180x180" href="brio-2.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="brio-2.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="brio-2.png" />
-  <script>
-    // Check if the user is logged in
-    if (localStorage.getItem("isLoggedIn") !== "true") {
-      // Redirect to login page if not logged in
-      window.location.href = "index.html";
-    }
-  </script>
   <title>Dashboard</title>
-  <link rel="stylesheet" href="stylesd.css">
-  <link rel="icon" href="path/to/favicon.ico" type="image/x-icon"> <!-- Update path for favicon -->
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="stylesd.css" rel="stylesheet">
+
+  <!-- Custom CSS for typing effect -->
+  <style>
+    #footer h6.typing {
+      overflow: hidden;
+      border-right: .15em solid orange;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .15em;
+      animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange; }
+    }
+  </style>
 </head>
-<body class="dashboard">
-  <div class="container">
-    <div class="logo-container">
-      <img src="logo.png" alt="Logo">
-    </div>
-    <div class="dashboard-content">
-      <h2>Welcome to Brio Dashboard</h2>
+
+<body>
+   <canvas></canvas>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"></script>
+   <script src="js/dat.gui.min.js"></script>
+   <script src="js/fluid-background.js"></script>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center"></header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+        <h2>Welcome to Brio Dashboard</h2>
       <ul>
         <li><a href="briofeasibilitychart.html" >Brio Feasibility Chart</a></li>
         <li><a href="otf.html" >Brio OTF</a></li>
         <li><a href="PriceChart.html" >Price Chart</a></li>
       </ul>
     </div>
-  </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- Content sections can go here -->
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="d-flex justify-content-center align-items-center">
+    <h6 id="typing-text" class="typing">Dev By Sayeed Shaik</h6>
+  </footer><!-- End Footer -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Custom JS for repeating typing effect -->
+  <script>
+    function resetTyping() {
+      const element = document.getElementById('typing-text');
+      element.classList.remove('typing');
+      void element.offsetWidth; // Trigger reflow
+      element.classList.add('typing');
+    }
+
+    setInterval(resetTyping, 7000); // Adjust the interval to match the animation duration
+  </script>
 </body>
+
 </html>
