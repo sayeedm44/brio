@@ -1,79 +1,399 @@
-/* General logo styling */
-.logo-container img {
-  max-width: 150px; /* Default logo size */
-  height: auto;
-  width: 100%; /* Ensures the logo is responsive */
+/**
+* Template Name: MyResume
+* Updated: Mar 10 2023 with Bootstrap v5.2.3
+* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-/* Specific styling for dashboard page */
-body.dashboard .logo-container img {
-  max-width: 100px; /* Smaller logo size for the dashboard */
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #121212;
+  display: flex; 
+  font-family: "Open Sans", sans-serif;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Ensure body is the reference point for absolute positioning */
 }
 
-/* Media Queries for Responsive Logo */
-@media (max-width: 768px) {
-  /* Adjust logo size for tablets and smaller screens */
-  body.dashboard .logo-container img {
-    max-width: 90px; /* Adjust size on smaller screens */
+canvas {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Ensure canvas is behind other elements */
+}
+
+a {
+  color: #307113;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #479923;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-@media (max-width: 480px) {
-  /* Adjust logo size for mobile devices */
-  body.dashboard .logo-container img {
-    max-width: 80px; /* Increase size for mobile */
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
   }
 }
 
-/* Text Styling for all screens */
-h2 {
-  margin-bottom: 20px;
-  color: #000000; /* Stylish color */
-  font-family: 'Arial Black', Arial, sans-serif; /* Bold font */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Text shadow for depth */
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 9997;
+  transition: all 0.5s;
+  padding: 15px;
+  overflow-y: auto;
 }
 
-label {
+@media (max-width: 991px) {
+  #header {
+    width: 300px;
+    background: transparent;
+    border-right: 1px solid #e6e9ec;
+    left: -300px;
+  }
+}
+
+@media (min-width: 991px) {
+  #main {
+    margin-left: 100px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.nav-menu {
+  padding: 0;
   display: block;
-  margin: 10px 0 5px;
-  text-align: left;
-  font-weight: bold; /* Make labels bold */
-  color: #555; /* Darker label color */
 }
 
-input {
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu>ul>li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu a,
+.nav-menu a:focus {
+  display: flex;
+  align-items: center;
+  color: #479923;
+  padding: 10px 18px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+  border-radius: 50px;
+  height: 56px;
   width: 100%;
-  padding: 10px; /* Increased padding for better touch targets */
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box; /* Ensures padding is included in width */
-  transition: border-color 0.3s; /* Smooth border color transition */
+  overflow: hidden;
+  transition: 0.3s;
 }
 
-input:focus {
-  border-color: #4CAF50; /* Change border color on focus */
-  outline: none; /* Remove default outline */
+.nav-menu a i,
+.nav-menu a:focus i {
+  font-size: 20px;
 }
 
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4CAF50; /* Button color */
+.nav-menu a span,
+.nav-menu a:focus span {
+  padding: 0 5px 0 7px;
+  color: transparent;
+}
+
+@media (min-width: 992px) {
+
+  .nav-menu a,
+  .nav-menu a:focus {
+    width: 56px;
+  }
+
+  .nav-menu a span,
+  .nav-menu a:focus span {
+    display: none;
+    color: transparent;
+  }
+}
+
+.nav-menu a:hover,
+.nav-menu .active,
+.nav-menu .active:focus,
+.nav-menu li:hover>a {
   color: white;
-  border: none;
-  border-radius: 4px;
+  background: #479923;
+}
+
+.nav-menu a:hover span,
+.nav-menu .active span,
+.nav-menu .active:focus span,
+.nav-menu li:hover>a span {
+  color: white;
+}
+
+.nav-menu a:hover,
+.nav-menu li:hover>a {
+  width: 100%;
+  color: transparent;
+}
+
+.nav-menu a:hover span,
+.nav-menu li:hover>a span {
+  display: block;
+}
+
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 9998;
+  border: 0;
+  background: none;
+  font-size: 28px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 0;
   cursor: pointer;
-  font-weight: bold; /* Bold text for button */
-  transition: background-color 0.3s; /* Smooth background color transition */
+  border-radius: 50px;
+  padding: 5px;
 }
 
-button:hover {
-  background-color: #45a049; /* Darker shade on hover */
+.mobile-nav-toggle i {
+  color: white;
 }
 
-#error-message {
-  color: red;
-  font-size: 0.9em;
-  font-style: italic; /* Italic style for error message */
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active #header {
+  left: 0;
+}
+
+.mobile-nav-active .mobile-nav-toggle {
+  color: #fff;
+  background-color: #121212;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1; /* Ensure hero section is above the canvas */
+}
+
+@media (min-width: 992px) {
+  #hero {
+    padding-left: 160px;
+  }
+}
+
+#hero:before {
+  content: "";
+  background: transparent;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero h2 {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 56px;
+  color: white;
+}
+
+#hero p {
+  color: #38761d;
+  margin: 15px 0 0 0;
+  font-size: 26px;
+  font-family: "Poppins", sans-serif;
+}
+
+#hero p span {
+  color: #6aa84f;
+  letter-spacing: 1px;
+}
+
+#hero .social-links {
+  margin-top: 30px;
+}
+
+#hero .social-links a {
+  font-size: 24px;
+  display: inline-block;
+  color: #754ef9;
+  line-height: 1;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+#hero .social-links a:hover {
+  color: #0563bb;
+}
+
+@media (max-width: 992px) {
+  #hero {
+    text-align: center;
+  }
+
+  #hero h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #hero p {
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h1 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #45505b;
+}
+
+.section-title h1::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+
+.section-title h1::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #0563bb;
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white; /* Text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px; /* Adjust padding for spacing */
+  z-index: 1000; /* Ensure footer is above other elements */
+  width: auto; /* Ensure the footer takes the width of its content */
+  height: auto; /* Ensure the footer takes the height of its content */
 }
